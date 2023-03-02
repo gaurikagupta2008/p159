@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Virtual Comic Book Store</title>
+    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+    <script src="./comic.js"></script>
+    <script src="./highlight.js"></script>
+  </head>
+  <body>
+    <a-scene id="main-scene">    
+      <a-sky id="main-container" radius="5000" color="#FFF380"></a-sky>
+
+      <!-- Posterss Container -->
+      <a-entity id="posters-container" comic></a-entity>
+
+      <!-- CAMERA -->
+      <a-camera id="camera" wasd-controls="enabled:false;">
+        <!-- App Title -->
+        <a-entity
+          id="app-title"
+          position="0 0.73 -1"
+          text="font: exo2bold; align: center; width: 2; color: #000; value: Read your favourite comic books virtually!"
+        >
+        </a-entity>
+
+        <!--Background-->
+        <a-entity> </a-entity>
+
+        <!-- CURSOR -->
+        <a-entity
+          id="camera-cursor"
+          cursor
+          position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: #fff; shader: flat"
+        >
+        </a-entity>
+        <a-entity
+          id="fadebg"
+          geometry="primitive:sphere; radius:2.5"
+          material="color:black; side:back; shader:flat; transparent:true; opacity:0.6"
+          visible="false"
+          cursor-listener
+        >
+
+        </a-entity>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
